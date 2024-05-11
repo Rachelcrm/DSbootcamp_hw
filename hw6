@@ -1,0 +1,29 @@
+3. A/B testing (or split testing) is a method used in marketing and product development to 
+compare two versions (A and B) of a webpage, etc.
+
+4. The test is used when two samples have different sizes, and its aim is to compare the main value.
+
+5. Null Hypothesis (H0): The true average call duration is 6 minutes.
+Alternative Hypothesis (H1): The true average call duration is greater than 6 minutes.
+Given:
+
+Sample Mean (x̄) = 6.5 minutes
+Sample Standard Deviation (s) = 1.2 minutes
+Sample Size (n) = 50
+Significance Level (α) = 0.05 (one-tailed test)
+
+Then use a one sample T-test.
+
+6. Null Hypothesis (H0): Mean score of Group A (μA) = Mean score of Group B (μB)
+Alternative Hypothesis (H1): Mean score of Group A (μA) ≠ Mean score of Group B (μB)
+Given:
+
+Sample Mean of Group A (x̄A) = 75
+Sample Standard Deviation of Group A (sA) = 8
+Sample Size of Group A (nA) = 25
+Sample Mean of Group B (x̄B) = 78
+Sample Standard Deviation of Group B (sB) = 7
+Sample Size of Group B (nB) = 30
+Significance Level (α) = 0.05 (two-tailed test)
+
+Then use a two sided independent test.
