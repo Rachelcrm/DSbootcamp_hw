@@ -1,0 +1,56 @@
+#1
+SELECT COUNT(Order_id) AS TotalOrdersCompleted
+FROM SALES
+WHERE Date = '2023-03-18';
+
+SELECT s.Item_id, i.Item_name, i.price
+FROM SALES s
+JOIN ITEMS i ON s.Item_id = i.Item_id
+WHERE s.Date = '2023-03-18';
+
+SELECT DISTINCT c.customer_id, c.first_name, c.last_name, c.Address
+FROM SALES s
+JOIN CUSTOMERS c ON s.Customer_id = c.customer_id
+WHERE s.Date = '2023-03-18';
+
+#2
+SELECT COUNT(s.Order_id) AS TotalOrdersCompleted
+FROM SALES s
+JOIN CUSTOMERS c ON s.Customer_id = c.customer_id
+WHERE s.Date = '2023-03-18'
+  AND c.first_name = 'John'
+  AND c.last_name = 'Doe';
+
+#3
+SELECT COUNT(DISTINCT s.Customer_id) AS TotalCustomers,
+       AVG(total_spent) AS AverageAmountSpentPerCustomer
+FROM (
+    SELECT Customer_id, SUM(Revenue) AS total_spent
+    FROM SALES
+    WHERE Date >= '2023-01-01' AND Date < '2023-02-01'
+    GROUP BY Customer_id
+)
+JOIN CUSTOMERS c ON s.Customer_id = c.customer_id;
+
+#4
+SELECT i.department, SUM(s.Revenue) AS TotalRevenue
+FROM SALES s
+JOIN ITEMS i ON s.Item_id = i.Item_id
+WHERE YEAR(s.Date) = 2022
+FROM i.department
+HAVING SUM(s.Revenue) < 600;
+
+#5
+SELECT MAX(Revenue) AS MaxRevenue
+FROM SALES;
+
+SELECT MIN(Revenue) AS MinRevenue
+FROM SALES;
+
+#6
+SELECT *
+FROM SALES
+WHERE Revenue = (
+    SELECT MAX(Revenue)
+    FROM SALES
+);
